@@ -1,0 +1,98 @@
+{
+  "report_title": "GitHub 有用信息日报",
+  "max_results_per_query": 8,
+  "min_stars": 20,
+  "queries": [
+    {
+      "name": "AI 视频生成与剪辑",
+      "query": "AI video generation OR video editing OR text to video",
+      "queries": [
+        "AI video generation",
+        "text to video",
+        "video editing automation",
+        "seedance"
+      ],
+      "why": "寻找能帮助短视频生产、自动剪辑、视频生成的工具"
+    },
+    {
+      "name": "AI 图片与商品素材",
+      "query": "\"AI image generation\" OR \"background removal\" OR \"product photography\"",
+      "queries": [
+        "AI image generation",
+        "background removal",
+        "product photography",
+        "image to video"
+      ],
+      "why": "寻找商品图、场景图、抠图、素材生成相关工具"
+    },
+    {
+      "name": "浏览器自动化与采集",
+      "query": "\"browser automation\" OR \"web scraping\" OR playwright OR crawler",
+      "queries": [
+        "browser automation",
+        "web scraping",
+        "playwright crawler",
+        "firecrawl"
+      ],
+      "why": "寻找可用于信息抓取、网页自动检查、竞品观察的工具"
+    },
+    {
+      "name": "电商与评论分析",
+      "query": "ecommerce OR \"product review\" OR \"sentiment analysis\" OR \"review analysis\"",
+      "queries": [
+        "ecommerce analytics",
+        "product review analysis",
+        "sentiment analysis",
+        "product recommendation"
+      ],
+      "why": "寻找选品、评论分析、商品洞察相关项目"
+    },
+    {
+      "name": "AI Agent 与工作流自动化",
+      "query": "AI agent workflow automation",
+      "queries": [
+        "AI agent workflow automation",
+        "workflow automation agent",
+        "MCP agent automation"
+      ],
+      "why": "寻找可串联选品、脚本、素材、发布流程的自动化工具"
+    },
+    {
+      "name": "中文 AI 工具",
+      "query": "\"Chinese AI\" OR douyin OR tiktok OR \"AI tool\"",
+      "queries": [
+        "Chinese AI",
+        "douyin",
+        "tiktok automation",
+        "AI tool"
+      ],
+      "why": "寻找中文生态里更容易落地的 AI 工具和项目"
+    }
+  ],
+  "positive_keywords": [
+    "video",
+    "image",
+    "agent",
+    "automation",
+    "scraping",
+    "crawler",
+    "ecommerce",
+    "review",
+    "sentiment",
+    "workflow",
+    "tts",
+    "subtitle",
+    "douyin",
+    "tiktok",
+    "product",
+    "marketing",
+    "creator"
+  ],
+  "negative_keywords": [
+    "deprecated",
+    "unmaintained",
+    "archived",
+    "toy",
+    "demo only"
+  ]
+}

@@ -1,0 +1,57 @@
+name: Daily GitHub Intel
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 01:15 UTC = 09:15 Asia/Shanghai.
+    - cron: "15 1 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-github-intel
+  cancel-in-progress: false
+
+jobs:
+  build-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_github_daily.py
+
+      - name: Verify report files
+        shell: bash
+        run: |
+          set -euo pipefail
+          today="$(TZ=Asia/Shanghai date +%F)"
+          test -s "daily-reports/${today}.md"
+          test -s "data/${today}.json"
+          python -m json.tool "data/${today}.json" >/dev/null
+
+      - name: Upload daily artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-daily-intel-${{ github.run_id }}
+          path: |
+            daily-reports/*.md
+            data/*.json
+          retention-days: 30
+
+      - name: Commit report
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: add daily GitHub intel report"
+          file_pattern: "daily-reports/*.md data/*.json"
